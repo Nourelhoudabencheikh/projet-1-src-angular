@@ -1,0 +1,26 @@
+<div id="haut"> <!--c'est la côté front d'ou on va récuppérer les donnés et l'afficher-->
+    <div id="bienvenue">
+  
+    </div>
+  </div>
+  <div id="bas">
+    <div class="row mb-4">
+      <ng-container *ngFor="let cat of category; let index=index">
+          <!--lenna amalna boucle for bsh dour aal catégory ly mawjouda fel service w ba3ed khdynehom les catégoirie 
+        w hatynehom f category mawjouda fel homecomponent.ts lenna juste appel w akhw-->
+        <div class="col-md-6"><!--ici les div pour pouvoir récuperer-->
+          <!-- <div class="card"> -->
+          <a (click)="detailCategorie(cat.id)" style="cursor: pointer;">
+            <img [src]="cat.url" [alt]="cat.nom" class="ImageCategorie" [title]='cat.nom' /> <!-- Récuperation de l'image par  son Url
+            qui se trouve dans le service categoriemock.ts-->
+          </a>
+          <!--  </div> -->
+
+
+
+          
+        </div>
+        <div class="w-100" *ngIf="(index+1) % 2 === 0"></div> 
+      </ng-container>
+    </div>
+  </div>

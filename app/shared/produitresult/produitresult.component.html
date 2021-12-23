@@ -1,0 +1,45 @@
+<!--[attr.data-cat] : des attributspersonnalisés fel HTML5 najem namel des attribut personnalisé -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<br>   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<body>
+  
+
+<table  class="table table-hover" >
+    
+    <thead>
+      <tr >
+        <th scope="col"><a #categ1 [attr.data-cat]="fromage" (click)="getCategoryName(categ1.dataset.cat)" routerLinkActive="active" class="btn btn-light" role="button">FROMAGES</a></th>
+        <th scope="col"><a #categ2 [attr.data-cat]="pain" (click)="getCategoryName(categ2.dataset.cat)" routerLinkActive="active" class="btn btn-light" role="button">PAINS</a></th>
+        <th scope="col"><a #categ3 [attr.data-cat]="legume" (click)="getCategoryName(categ3.dataset.cat)" routerLinkActive="active" class="btn btn-light" role="button">LEGUMES</a></th>
+        <th scope="col"><a #categ4 [attr.data-cat]="viande" (click)="getCategoryName(categ4.dataset.cat)" routerLinkActive="active" class="btn btn-light" role="button">VIANDES</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of result.produit; let index=index">
+        <th scope="row" ><img [src]=prod.url [alt]="prod.nom" class="imgCategorie" [title]='prod.nom'></th>
+        <td >{{prod.nom}}<br>{{prod.description}}</td>
+        <!-- <td >{{prod.prix}}</td> -->
+        <td >{{ prod.prix | currency: 'TN':'symbol':undefined:'ar-tn' }}</td>
+        <td ><button type="button" class="btn btn-secondary" (click)="handelAddToCart(prod)" >Ajouter au panier</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</body>
+</html>
